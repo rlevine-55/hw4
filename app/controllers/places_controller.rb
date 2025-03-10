@@ -1,7 +1,7 @@
 class PlacesController < ApplicationController
 
   def index
-    @places = Place.where({ "user_id" => session["user_id"] })
+    @places = Place.all
   end
 
   def show
@@ -13,12 +13,9 @@ class PlacesController < ApplicationController
   end
 
   def create
-    if User.find_by({ "id" => session["user_id"] }) != nil
     @place = Place.new
     @place["name"] = params["name"]
-    @place["user_id"] = session["user_id"]
     @place.save
-  end
     redirect_to "/places"
 end
 end
