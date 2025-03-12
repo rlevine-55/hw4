@@ -1,23 +1,26 @@
+<div class="mt-2">
 <h1><%= @place["name"] %></h1>
-
+</div>
 
 <h2>My Entries</h2>
 
+<div class="mt-4">
 <a href="/entries/new?place_id=<%= @place["id"] %>"class="btn btn-primary">New Entry</a>
+</div>
 
- 
-
-
+<div class="mt-2">
 <p>
   <a href="/places"class="btn btn-secondary">Back to All Places</a>
 </p>
+</div>
+
 <div class="row">
 <% if User.find_by({ "id" => session["user_id"] }) != nil %>
 <% end %>
 
 
 <% for entry in @entries %>
-<div class="col-4">
+<div class="col-12 col-sm-4">
   <h3><%= entry["title"] %></h3>
   <h4><%= entry["occurred_on"] %></h4>
   <p><%= entry["description"] %></p>
