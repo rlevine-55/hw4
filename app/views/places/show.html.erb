@@ -22,7 +22,8 @@
 <% for entry in @entries %>
 <div class="col-12 col-sm-4">
   <h3><%= entry["title"] %></h3>
-  <h4><%= entry["occurred_on"] %></h4>
+  <h4><img src="<%= url_for(entry.uploaded_image) %>" class="img-fluid"></h4>
+  <h5><%= entry["occurred_on"] %></h5>
   <p><%= entry["description"] %></p>
 </div>
 <% end %>
